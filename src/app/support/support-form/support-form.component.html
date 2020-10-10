@@ -1,0 +1,102 @@
+<div *ngIf="!supportFormStates.succesful">
+  <h2 class="headline">
+    {{pageContent.supportFormHeadline.value}}
+  </h2>
+
+  <div [innerHTML]="pageContent.supportFormBody.value">
+
+  </div>
+</div>
+
+<div *ngIf="!supportFormStates.succesful">
+
+  <span class="alert support-form__submission-error" role="alert" *ngIf="supportFormStates.error">
+    There was an issue with the server when submitting your form.
+    Please refresh this page and try again.
+  </span>
+
+
+  <form [formGroup]="form" (ngSubmit)="sendMessage()">
+    <div class="form-fields">
+      <div class="row">
+        <div class="col-sm-12  col-md-6">
+          <div class="input-wrapper">
+            <input type="text" id="full-name" formControlName="fullName"
+              class="input--primary input--medium  input--half" placeholder="What is your full name?">
+            <label for="full-name">
+              Full Name
+            </label>
+            <span class="alert" role="alert" *ngIf="fullName.touched && fullName.invalid">
+              <div>“First name” section is not complete</div>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-sm-12  col-md-6">
+          <div class="input-wrapper">
+            <input type="email" id="email" formControlName="email" class="input--primary input--medium "
+              placeholder="Type a valid email address">
+            <label for="email">
+              Email
+            </label>
+            <span class="alert" role="alert" *ngIf="email.touched && email.invalid">
+              <div>
+                Please enter a valid email address.
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="input-wrapper">
+            <input type="text" id="support-topic" formControlName="supportTopic" class="input--primary input--medium"
+              placeholder="What is your issue?">
+            <label for="support-topic">
+              Brief Issue Overview
+            </label>
+            <span class="alert" *ngIf="supportTopic.invalid && supportTopic.touched">
+              <div>
+                Please write a brief title describing your issue.
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="input-wrapper">
+            <textarea name="message" id="message" cols="30" rows="10" formControlName="message"
+              placeholder="Describe your issue in as much detail as possible.">
+						</textarea>
+            <label for="message">
+              Issue Details
+            </label>
+            <span class="alert" role="alert" *ngIf="message.invalid && message.touched">
+              <div>
+                "Issue details" section is not complete.
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [ngClass]="{'is-disabled' : form.invalid}"
+      class="button--primary  button--medium support-form__button" title="Send My Message"
+      aria-label="Send support query">
+      <span>SEND MY MESSAGE</span>
+    </button>
+  </form>
+</div>
+
+<div *ngIf="supportFormStates.succesful && !supportFormStates.error">
+  <h2 class="headline">
+    {{pageContent.supportFormSuccessHeadline.value}}
+  </h2>
+  <div [innerHTML]="pageContent.supportFormSuccessBody.value">
+  </div>
+</div>

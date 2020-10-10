@@ -1,0 +1,44 @@
+
+
+/*------------------------------------*\
+    #Main Imports
+\*------------------------------------*/
+
+
+//Vendors 
+@import
+   "vendor/foundationFunctions",
+   "vendor/normalize",
+   "vendor/swiper";
+
+
+// Globals
+@import 
+    'globals/breakpoints',
+    'globals/grids',
+    'globals/colors',
+    'globals/marginsAndPadding',
+   	'globals/visibility',
+    'globals/typography',
+    'globals/buttons',
+    'globals/forms';
+
+
+// Components
+@import 
+  'components/navigation',
+  'components/footer',
+  'components/loadingScreen',
+  'components/windowsAlert',
+  'components/pageHeaders',
+  'components/sections';
+
+
+
+// Pages 
+@import
+'pages/home',
+'pages/support',
+'pages/download'; 
+
+

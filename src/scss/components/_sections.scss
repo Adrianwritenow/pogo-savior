@@ -1,0 +1,35 @@
+
+/*------------------------------------*\
+    #Sections 
+\*------------------------------------*/
+
+.section,
+section {
+  padding-bottom: rem-calc($level7 + $level3);
+  position: relative;
+
+  @include media-query($medium-up) {
+    padding-bottom: rem-calc($level7 + $level1);
+  }
+
+   @include media-query($large-up) {
+    padding-bottom: rem-calc($level7 + $level7);
+  }
+}
+
+
+
+.section--main {
+	margin-top: rem-calc($level7 + $level7 + $level5);
+}
+
+
+
+main {
+	min-height: 120vh;
+}
+
+
+.pages-container {
+ min-height: 100vh; 
+}

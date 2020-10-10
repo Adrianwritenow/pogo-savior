@@ -1,0 +1,49 @@
+
+
+.loading-screen {
+	position: fixed; 
+	height: 100vh;
+	width: 100vw; 
+	background-color: #fff; 
+	z-index: 3; 
+	opacity: 1; 
+	top: 0; 
+
+  &.ng-enter {
+    animation: loading-screen-in .3s ease-in forwards; 
+  }
+
+  &.ng-leave {
+	animation: loading-screen-out .3s ease-in forwards; 
+  }
+
+}
+
+
+
+@keyframes loading-screen-in {
+	
+	0% {
+		opacity: 0; 
+	}
+
+	100% {
+		opacity: 1; 
+	}
+}
+
+
+@keyframes loading-screen-out {
+	
+	0% {
+		opacity: 1; 
+	}
+
+	100% {
+		opacity: 0; 
+		z-index:-3;
+	}
+}
+
+
+

@@ -1,0 +1,335 @@
+
+
+/*------------------------------------*\
+    #Support Styles
+\*------------------------------------*/
+
+
+.gmail-settings {
+	background-color: #F7F0F0; 
+	border-radius: 16px;
+	margin-bottom: rem-calc($level4);
+	color: $primary-color;
+
+	@include media-query($medium-up) {
+		margin-bottom: rem-calc($level5);
+	}
+
+	@include media-query($large-up) {
+		max-width: rem-calc(630px);
+		height: 100%; 
+		margin-bottom: 0; 
+	}
+
+	.gmail-settings__inner {
+		padding: rem-calc($level4);
+
+		@include media-query($medium-up) {
+			padding: rem-calc($level6);
+		}
+	}
+
+	.gmail-settings__steps {
+		display: flex; 
+		
+		.gmail-settings__steps__icon {
+			display: none; 
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+
+			@include media-query($medium-up) {
+				display: block;
+				flex: none;
+				margin-right: rem-calc($level5);
+				width: rem-calc(80px);
+			}
+
+			@include media-query($large-up) {
+				width: rem-calc(110px);
+			}
+		}
+
+		.gmail-settings__steps__step {
+			display: flex;
+			align-items: center; 
+			margin-bottom: rem-calc($level1);
+
+
+			span{
+				margin-right: rem-calc($level1); 
+				background-color: $secondary-color; 
+				color: #fff;
+				border-radius: 100%; 
+				height: rem-calc(20px);
+				width: rem-calc(20px);
+				display: flex; 
+				align-items: center; 
+				justify-content: center; 
+				padding-bottom: rem-calc(3px);
+				flex: none;
+				@include h6();
+			}
+
+			a {
+			    color: $secondary-color;
+			    font-weight: bold; 
+			    font-family: $tertiary-font-family; 
+			    border-bottom: 2px dotted $quintenary-color;
+			    text-decoration: none; 
+			    	
+			    @include media-query($large-up) {
+			    	@include h6(); 
+			    }
+
+			    &:hover, 
+			    &:focus {
+			      border-bottom-color: #fff;
+			    }
+				@include media-query($medium-up) {
+					white-space: nowrap
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Windows Patch Manual Install Section
+\*------------------------------------*/
+
+
+.win-patch-manual-install {
+	background-color: #F7F0F0; 
+	height: 100%;
+	border-radius: 16px;
+	color: $primary-color;
+	
+	@include media-query($medium-up) {
+		margin-bottom: rem-calc($level3);
+	}
+
+	@include media-query($large-up) {
+		margin-left: rem-calc($level4); 
+		margin-bottom: 0; 
+	}
+
+	.win-patch-manual-install__inner {
+		padding: rem-calc($level4);
+		padding-right: rem-calc($level4);
+
+		@include media-query($medium-up) {
+			padding: rem-calc($level6);
+			padding-right: rem-calc($level4);
+		}
+	}
+
+	.win-patch-manual-install__cta {
+		display: flex; 
+	 align-items: center; 
+
+		.win-patch-manual-install__cta__image {
+			width: rem-calc(50px);
+			flex: none;
+			margin-right: rem-calc($level4);
+
+		}
+
+		.win-patch-manual-install__cta__body {
+			margin-bottom: rem-calc($level2);
+			max-width: rem-calc(200px); 
+   		@include link-styles(); 
+			
+			@include media-query($medium-up) {
+				max-width: 100%; 
+	   		@include h6(); 
+			}
+		}
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Downloads Section 
+\*------------------------------------*/
+
+
+.downloads-section {
+
+	.downloads-section__copy {
+		max-width: rem-calc(440px);
+	}
+
+	.downloads-section__headline {
+		max-width: rem-calc(300px);
+		@include media-query($medium-up) {
+			max-width: 100%; 
+		}
+	}
+	
+	.download-section__files {
+		display: flex; 
+			flex-direction: row; 
+			flex-wrap: wrap; 
+
+		@include media-query($medium-up) {
+			flex-direction: row; 
+		}
+
+		.downloads-section__file:nth-child(2) {
+			margin-right: 0; 
+			
+			@include media-query($medium-up) {
+				margin-right: rem-calc($level3);
+			}
+		}
+	}
+
+	.downloads-section__file {
+		display: flex;
+		flex: none;
+		flex-direction: column; 
+		border: 1px solid $quaternary-color;
+		border-radius: 10px; 
+		margin-right: 5%;
+		margin-bottom: rem-calc($level3); 
+		max-width: rem-calc(268px);
+		min-width: 45%; 
+
+		@include media-query($medium-up) {
+			min-width: rem-calc(240px);
+			margin-right: rem-calc($level3);
+		}
+		
+		@include media-query($large-up) {
+			min-width: rem-calc(200px);
+		}
+
+		.downloads-section__file__name {
+			padding: rem-calc($level2); 
+			border-bottom: 1px solid $quaternary-color; 
+			width: 100%; 
+			text-align: center; 
+			align-items: center; 
+			font-weight: bold; 
+			font-family: $tertiary-font-family;
+			color: $secondary-color; 
+			@include h6();
+		}
+
+		.downloads-section__file__image {
+			width: rem-calc(71px);
+		  flex: none; 
+		  margin-right: rem-calc($level2);
+			border-bottom: 1px solid $quaternary-color; 
+			width: 100%; 
+			padding-top: rem-calc($level2);
+			padding-bottom: rem-calc($level2);
+		  text-align: center; 
+		  display: flex; 
+		  justify-content: center; 
+		  align-items: center; 
+		  min-height: rem-calc(100px); 
+		  background-color: $tertiary-color; 
+			
+			svg {
+				width: 100%;
+				height: 100%;
+				max-width: 2.5rem;
+				margin-right: auto; 
+				margin-left: auto; 
+				flex: none; 
+			}
+		}
+
+		.downloads-section__file__download-link {
+			margin-bottom: 0; 
+			text-align: center; 
+			padding-top: rem-calc($level3);
+			padding-bottom: rem-calc($level3);
+
+			a {
+				margin-bottom: 0;
+				width: rem-calc(140px);
+				margin-right: auto; 
+				margin-left: auto;  
+			}
+		}
+	}
+}
+
+
+.faq-questions {
+	.faq-questions__item {
+		border-bottom: 2px dotted $quintenary-color;
+		position: relative; 
+		margin-bottom: rem-calc($level4);
+
+		&.is-active {
+			.faq-questions__item__question {
+				.faq-questions__item__icon {
+					transform: rotate(180deg);
+				}
+			}
+		}
+		
+		.faq-questions__item__question {
+			display: flex;
+			color: $secondary-color;
+			text-decoration: none;
+			align-items: center; 
+
+			p {
+				padding-left: rem-calc($level2);
+				padding-right: rem-calc($level7 + $level7);
+				@include h4();
+			}
+		}
+
+		.faq-questions__item__icon {
+			position: absolute;
+			width: rem-calc(26px);
+			height: rem-calc(26px);
+			top: rem-calc($level1); 
+			right: rem-calc($level6); 
+			transition: all .3s ease-in-out;
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		} 
+
+		.faq-questions__item__answer {
+			padding-left: rem-calc($level2);
+			padding-right: rem-calc($level7 + $level7);
+			margin-bottom: rem-calc($level4);
+			display: none; 
+			min-width: rem-calc(200px);
+			overflow: hidden; position: relative; 
+		}
+	}
+}
+
+
+.support-form-container {
+  position: relative;
+
+	.support-form__submission-error {
+		@include submission-error()
+	}
+
+	.support-form__button {
+		min-width: rem-calc(160px);
+	}
+}
+

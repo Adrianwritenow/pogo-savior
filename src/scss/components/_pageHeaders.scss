@@ -1,0 +1,17 @@
+
+/*------------------------------------*\
+    #Page Headers 
+\*------------------------------------*/
+
+.page-header {
+	padding-bottom: rem-calc($level2);
+
+  @include media-query($medium-up) {
+		padding-bottom: rem-calc($level7);
+
+    .headline {
+    	margin-bottom: 0; 
+    	@include text-kilo();
+    }
+  }
+}

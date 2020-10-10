@@ -1,0 +1,18 @@
+<section class="download-page__download-state-form">
+  <div class="row center-md start-lg">
+    <div class="col-sm-12 col-md-10  col-lg-7 col-lg-offset-1">
+      <div>
+        <h1 class="headline">
+          {{pageContent.headline.value}}
+        </h1>
+        <div class="download-page__download-state-form__body" [innerHTML]="pageContent.body.value">
+
+        </div>
+
+        <download-form (handleClick)="childEvent($event)">
+
+        </download-form>
+      </div>
+    </div>
+  </div>
+</section>

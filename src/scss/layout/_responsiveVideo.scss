@@ -1,0 +1,38 @@
+
+
+/*------------------------------------*\
+    #Responsive Video 
+\*------------------------------------*/
+
+
+// We use these to control video container padding and margins
+$flex-video-padding-top: rem-calc(25);
+$flex-video-padding-bottom: 67.5%;
+$flex-video-margin-bottom: rem-calc(16);
+
+// We use this to control widescreen bottom padding
+$flex-video-widescreen-padding-bottom: 56.34%;
+
+
+.responsiveVideo {
+  height: 0;
+  margin-bottom: $flex-video-margin-bottom;
+  overflow: hidden;
+  padding-bottom: $flex-video-padding-bottom;
+  padding-top: $flex-video-padding-top;
+  position: relative;
+
+  &.widescreen { padding-bottom: $flex-video-widescreen-padding-bottom; }
+  &.vimeo { padding-top: 0; }
+
+  iframe,
+  object,
+  embed,
+  video {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    #{$default-float}: 0;
+  }
+}

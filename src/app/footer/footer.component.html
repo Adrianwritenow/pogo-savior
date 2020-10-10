@@ -1,0 +1,49 @@
+
+
+<div class="closing-statement__background" *ngIf="!isDownloadPage">
+  <picture>
+    <source data-srcset="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/4cf35aba-2b53-49cb-ae71-55d8525ed731/closing-statement-image-large.svg" media="(min-width: 961px)">
+    <source data-srcset="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/d03a3924-b559-42a4-a20d-8fb7f054abef/closing-statement-image-medium.svg" media="(min-width: 768px)">
+    <img data-src="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/ab33260d-0e9f-4390-8926-73feef18cc29/closing-statement-image-small.svg"
+      alt="An illustrated row of different cold-chain fridges used in the market." class="lazyload">
+  </picture>
+</div>
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352.8 64.8"
+        role="presentation">
+        <title>Pogo LT Logo</title>
+        <path
+          d="M338,56.63h-1.82v-1.5h5.38v1.5h-1.84v4.66H338Zm4.54-1.5h1.8l1.48,2.38,1.46-2.38h1.8v6.16h-1.68V57.67l-1.56,2.46h-.08l-1.56-2.46v3.62h-1.66Z" />
+        <path
+          d="M3.75,3.51h26c15.35,0,25.83,6.85,25.83,20.55v.17c0,14-10.64,21.38-26.24,21.38H23.07V61.29H3.75ZM28.27,31.82c4.95,0,8.25-2.23,8.25-6.35V25.3c0-4.21-3.06-6.35-8.17-6.35H23.07V31.82Z" />
+        <path
+          d="M57.62,32.57V32.4c0-16.75,13.79-30.13,31.62-30.13s31.44,13.21,31.44,30v.17c0,16.75-13.78,30.12-31.61,30.12S57.62,49.32,57.62,32.57Zm43.58,0V32.4c0-6.85-4.7-13-12.13-13s-12,6.11-12,12.87v.17c0,6.85,4.71,13,12.14,13S101.2,39.33,101.2,32.57Z" />
+        <path
+          d="M123.46,32.57V32.4c0-17.25,13.62-30.13,31.86-30.13A35.81,35.81,0,0,1,179.5,11l-10.81,13a19.4,19.4,0,0,0-12.79-5c-7.51,0-13,5.78-13,13.62v.16c0,8.17,5.7,13.79,13.78,13.79,3.31,0,5.12-.5,6.61-1.33V39.5h-9.91V27.12h28V53.86a40,40,0,0,1-25.5,8.66C137.91,62.52,123.46,50.48,123.46,32.57Z" />
+        <path
+          d="M185.32,32.57V32.4c0-16.75,13.78-30.13,31.61-30.13s31.44,13.21,31.44,30v.17c0,16.75-13.78,30.12-31.61,30.12S185.32,49.32,185.32,32.57Zm43.58,0V32.4c0-6.85-4.71-13-12.14-13s-12,6.11-12,12.87v.17c0,6.85,4.7,13,12.13,13S228.9,39.33,228.9,32.57Z" />
+        <path d="M270.84,3.51h4.29V57.33h33.93v4H270.84Z" />
+        <path d="M319.44,7.47H299.3v-4h44.57v4H323.73V61.29h-4.29Z" />
+      </svg>
+    </div>
+    <ul class="footer__navigation">
+      <li *ngFor="let link of links" class="footer__navigation__item">
+        <a routerLink="{{link.url}}" rel="internal" class="footer__navigation__link">
+          <span>{{link.title}}</span>
+        </a>
+      </li>
+      <li class="footer__navigation__item">
+        <a routerLink="/privacy-policy" rel="internal" class="footer__navigation__link">
+          <span>Privacy Policy</span>
+        </a>
+      </li>
+    </ul>
+    <div class="footer__credit">
+      © 2020 POGO LT
+    </div>
+  </div>
+
+</footer>

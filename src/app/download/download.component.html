@@ -1,0 +1,27 @@
+<div class="download-page">
+  <div class="section--main download-page__content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12" [ngClass]="show ? '': 'ng-leave'">
+          <download-regestration *ngIf="!registered" (notifyGrandParent)="grandmaHandleClick($event)">
+          </download-regestration>
+          <download-success *ngIf="registered"></download-success>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="download-page__bg" *ngIf="!registered">
+    <picture>
+      <source
+        srcset="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/5d14b070-c3ce-4378-887b-09b2a8ea53a3/download-page-image-large.svg"
+        media="(min-width: 961px)">
+      <source
+        srcset="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/53cff080-ffdf-4778-b890-1d237c3a9783/download-page-image-medium.svg"
+        media="(min-width: 768px)">
+      <img
+        src="https://assets-us-01.kc-usercontent.com/93915114-40e4-00f7-8be7-c49e3a2a4b88/9750bcdf-2434-4c48-be14-41ff9aed9bb2/download-page-image-small.svg"
+        alt="A row of different cold-chain fridges used in the market.">
+    </picture>
+  </div>
+</div>

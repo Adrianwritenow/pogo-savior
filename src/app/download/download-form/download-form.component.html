@@ -1,0 +1,139 @@
+			<div class="download-form">
+
+			  <span class="alert download-form__submission-error" *ngIf="registrationState.error">
+			    There was an issue with the server when submitting your form.
+			    Please refresh this page and try again.
+			  </span>
+
+			  <form [formGroup]="form" [formGroup]="form">
+
+			    <div class="form-fields">
+			      <div class="row">
+			        <div class="col-sm-12 col-md-6">
+
+			          <div class="input-wrapper">
+			            <input type="text" id="First Name" formControlName="firstName" required="required"
+			              class="input--primary input--medium input--half" maxlength="15" ng-model="form.firstName">
+			            <label for="First Name">
+			              First Name
+			            </label>
+			            <span class="alert" ng-messages="form.firstName.$error" role="alert"
+			              *ngIf="firstName.touched && firstName.invalid ">
+			              <div ng-message="required">“First name” section is not complete</div>
+			            </span>
+			          </div>
+			        </div>
+
+			        <div class="col-sm-12 col-md-6">
+			          <div class="input-wrapper">
+			            <input type="text" id="Last Name" formControlName="lastName" class="input--primary input--medium">
+			            <label for="Last Name">
+			              Last Name
+			            </label>
+			            <span class="alert" role="alert" *ngIf="lastName.touched && lastName.invalid ">
+			              <div ng-message="required">"Last name” section is not complete</div>
+			            </span>
+			          </div>
+			        </div>
+			      </div>
+
+			      <div class="row">
+			        <div class="col-sm-12 col-md-6">
+
+			          <div class="input-wrapper">
+			            <input type="email" id="email" formControlName="email" class="input--primary input--medium  input--half
+							" ng-model="form.email">
+			            <label for="email">
+			              Email
+			            </label>
+			            <span class="alert" *ngIf="email.touched && email.invalid " role="alert">
+
+			              <div>
+			                Please enter a valid email address.
+			              </div>
+			            </span>
+			          </div>
+			        </div>
+
+			        <div class="col-sm-12 col-md-6">
+
+			          <div class="input-wrapper">
+			            <input type="text" id="organization" class="input--primary input--medium" formControlName="organization">
+			            <label for=organization>
+			              Organization
+			            </label>
+			            <span class="alert" role="alert" *ngIf="organization.touched && organization.invalid ">
+			              <div>
+			                Please enter your organization name.
+			              </div>
+			            </span>
+			          </div>
+
+			        </div>
+			      </div>
+
+			      <div class="row">
+			        <div class="col-sm-12 col-md-6">
+			          <div class="input-wrapper">
+			            <select id="country" formControlName="country" class="input--primary input--medium input--half">
+			              <option disabled selected value> -- choose a country -- </option>
+			              <option value="{{country.name}}" *ngFor="let country of countries; index as i;">
+			                {{country.name}}
+			              </option>
+			            </select>
+			            <label for="country-of-origin">
+			              Country
+			            </label>
+
+			            <span class="alert" role="alert" *ngIf="country.touched && country.invalid">
+			              <div ng-message="required">
+			                Please choose your country.
+			              </div>
+			            </span>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="row">
+			        <div class="col-sm-12">
+			          <div class="disclaimer-acceptance">
+			            <input type="checkbox" formControlName="gdpr" id="gdpr rules" required>
+			            <label class="disclaimer" for="gdpr rules">
+			              {{pageContent.gdpr.value}}
+			            </label>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			    <button download-button class="download-form__button  button--medium button--expanded  "
+			      [ngClass]="{'is-disabled' : form.invalid}" (ngModelChange)="getRegistrationState()"
+			      [state]="getRegistrationState()" (click)="registerUser()" aria-disabled="true"
+			      aria-label="Register and Download Pogo LT">
+			      <span class="button__text-untouched">
+			        {{buttonText.normal}}
+			      </span>
+			      <span class="button__text-in-progress">
+			        {{buttonText.progress}}
+			      </span>
+			      <span class="button__icon button__icon--untouched">
+			        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.3 21.3">
+			          <path fill="none" stroke="#fff" stroke-width="1.601" stroke-linecap="round" stroke-linejoin="round"
+			            stroke-miterlimit="10" d="M11 1v19.2l5.6-5.6M11 1v19.2l-5.6-5.6" /></svg>
+			      </span>
+			      <span class="button__icon  button__icon--loading">
+			        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+			          <circle cx="9.5" cy="9.5" r="7.7" fill="none" stroke="#fff" stroke-width="1.601" stroke-linecap="round"
+			            stroke-linejoin="round" stroke-miterlimit="10" /></svg>
+			      </span>
+			      <span class="button__icon button__icon--success">
+			        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.3 21.3">
+			          <path fill="none" stroke="#fff" stroke-width="1.742" stroke-linecap="round" stroke-linejoin="round"
+			            stroke-miterlimit="10" d="M20.3 5.4l-13.9 14-5.5-6" /></svg>
+			      </span>
+			      <span class="download-form__button__progress-bar" data-ui-component="progress-bar">
+
+			      </span>
+			    </button>
+
+			  </form>
+
+			</div>
