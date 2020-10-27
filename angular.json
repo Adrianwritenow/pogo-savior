@@ -11,7 +11,15 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:server",
+          "server": {
+            "builder": "@angular-devkit/build-angular:server",
+            "options": {
+              "outputPath": "dist/pogo-lt-savior",
+              "main": "src/main.server.ts",
+              "tsConfig": "src/tsconfig.server.json"
+            }
+          },
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
               "path": "./custom-webpack.config.js"
