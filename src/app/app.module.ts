@@ -25,7 +25,7 @@ import {appRouting} from './app.routing';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId:'pogo-lt'}),
     appRouting,
     SupportModule,
     ReactiveFormsModule,

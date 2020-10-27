@@ -1,5 +1,7 @@
 import { Directive, OnInit } from '@angular/core';
 
+import { normalizeCommonJSImport } from '../utils/normalizeCommonJSImport';
+
 @Directive({
   selector: '[using-pogo-anims]'
 })
@@ -26,99 +28,99 @@ export class UsingPogoAnimsDirective implements OnInit{
     const animationDuration = '180%'; 
 
 
-		function initDesktop() {
+	// 	function initDesktop() {
 
-      import(/*webpackChunkName: "ScrollMagic" */ 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js').then(({default: ScrollMagic})=>{
-        import(/*webpackChunkName: "animation.gsap" */ 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js').then(({default: animationGsap})=>{
-          import(/*webpackChunkName: "TimelineMax" */ 'gsap/src/minified/TimelineMax.min.js').then(({default: TimelineMax})=>{
-            import(/*webpackChunkName: "TweenMax" */ "gsap/src/minified/TweenMax.min.js").then(({default: TweenMax}) => {
-							import(/*webpackChunkName: "jquery" */ "jquery").then(({default: $}) => {
+	// 		import(/*webpackChunkName: "ScrollMagic" */ 'ScrollMagic').then(({default: ScrollMagic})=>{
+    //     import(/*webpackChunkName: "animation.gsap" */ 'animation.gsap').then(({default: animationGsap})=>{
+    //       import(/*webpackChunkName: "TimelineMax" */ 'TimelineMax').then(({default: TimelineMax})=>{
+    //         import(/*webpackChunkName: "TweenMax" */ "TweenMax").then(({default: TweenMax}) => {
+	// 		import(/*webpackChunkName: "jquery" */ "jquery").then(({default: $}) => {
 
-            //   window.jQuery = $;
-            //   window.$ = $;
+    //         //   window.jQuery = $;
+    //         //   window.$ = $;
 
-						const controller = new ScrollMagic.Controller({});
+	// 					const controller = new ScrollMagic.Controller({});
 
-						// const $need = $(selectors.need);
+	// 					// const $need = $(selectors.need);
 
-						var stepsAnimation =  new ScrollMagic.Scene({
-							triggerElement: selectors.usingPogo, 
-							duration: animationDuration,
-							triggerHook: 0.15,
-						}).setPin(selectors.usingPogo).addTo(controller); 
+	// 					var stepsAnimation =  new ScrollMagic.Scene({
+	// 						triggerElement: selectors.usingPogo, 
+	// 						duration: animationDuration,
+	// 						triggerHook: 0.15,
+	// 					}).setPin(selectors.usingPogo).addTo(controller); 
 
-						var timelineTween = new TimelineMax()
-						  .to("[data-step='download']", 1, {css: {className: "+=is-checked"}})
-						  .to(selectors.downloadStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
-							.fromTo(selectors.timeline, 2, 
-							{height: 0}, 
-							{height: '25%'}, '-=0.4')
-							.to("[data-step='gmail']", 1, {css: {className: "+=is-checked"}}, '-=0.4')
-						  .to(selectors.downloadStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
-						  .to(selectors.gmailStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
-							.to(selectors.timeline, 2, 
-							{height: '75%'})
-							.to("[data-step='login']", 1, {css: {className: "+=is-checked"}}, '-=1')
-						  .to(selectors.gmailStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
-						  .to(selectors.loginStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
-							.to(selectors.timeline, 2, 
-							{height: '98%'})
-							.to("[data-step='export']", 1, {css: {className: "+=is-checked"}}, '-=0.4')
-						  .to(selectors.loginStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
-						  .to(selectors.exportStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
-
-
-						var scene = new ScrollMagic.Scene(
-							{triggerElement: selectors.usingPogo, 
-							 triggerHook: 0.15, 
-							 duration: animationDuration})
-							.setTween(timelineTween)
-							.addTo(controller);
+	// 					var timelineTween = new TimelineMax()
+	// 					  .to("[data-step='download']", 1, {css: {className: "+=is-checked"}})
+	// 					  .to(selectors.downloadStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
+	// 						.fromTo(selectors.timeline, 2, 
+	// 						{height: 0}, 
+	// 						{height: '25%'}, '-=0.4')
+	// 						.to("[data-step='gmail']", 1, {css: {className: "+=is-checked"}}, '-=0.4')
+	// 					  .to(selectors.downloadStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
+	// 					  .to(selectors.gmailStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
+	// 						.to(selectors.timeline, 2, 
+	// 						{height: '75%'})
+	// 						.to("[data-step='login']", 1, {css: {className: "+=is-checked"}}, '-=1')
+	// 					  .to(selectors.gmailStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
+	// 					  .to(selectors.loginStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
+	// 						.to(selectors.timeline, 2, 
+	// 						{height: '98%'})
+	// 						.to("[data-step='export']", 1, {css: {className: "+=is-checked"}}, '-=0.4')
+	// 					  .to(selectors.loginStepImage, 1, {css: {className: "-=is-active"}}, '-=1')
+	// 					  .to(selectors.exportStepImage, 1, {css: {className: "+=is-active"}}, '-=1')
 
 
-						function setupButtons() {
-								const $counterButtons = $(selectors.counterButtons); 
-								$counterButtons.each(function(index) {
-
-									$(this).one('click focus', function(event) {
-											event.preventDefault();
-
-											var that = this; 
-											var step = $(that).data('id'); 
-
-											if(step === 0) {
-												timelineTween.seek(2)
-											}
+	// 					var scene = new ScrollMagic.Scene(
+	// 						{triggerElement: selectors.usingPogo, 
+	// 						 triggerHook: 0.15, 
+	// 						 duration: animationDuration})
+	// 						.setTween(timelineTween)
+	// 						.addTo(controller);
 
 
-											if(step === 1) {
-												timelineTween.seek(3)
-											}
+	// 					function setupButtons() {
+	// 							const $counterButtons = $(selectors.counterButtons); 
+	// 							$counterButtons.each(function(index) {
+
+	// 								$(this).one('click focus', function(event) {
+	// 										event.preventDefault();
+
+	// 										var that = this; 
+	// 										var step = $(that).data('id'); 
+
+	// 										if(step === 0) {
+	// 											timelineTween.seek(2)
+	// 										}
 
 
-											if(step === 2) {
-												timelineTween.seek(4.5)
-											}
+	// 										if(step === 1) {
+	// 											timelineTween.seek(3)
+	// 										}
 
 
-											if(step === 3) {
-												timelineTween.seek(6.9)
-											}
+	// 										if(step === 2) {
+	// 											timelineTween.seek(4.5)
+	// 										}
 
 
-										}); 
-									})
-							}
+	// 										if(step === 3) {
+	// 											timelineTween.seek(6.9)
+	// 										}
+
+
+	// 									}); 
+	// 								})
+	// 						}
 							
-							setupButtons()
-							}); 
-						}); 
+	// 						setupButtons()
+	// 						}); 
+	// 					}); 
 
-		     		}); 
-          }); 
-        }); 
+	// 	     		}); 
+    //       }); 
+    //     }); 
 
-      }
+    //   }
         
    function initMobile() {
 
@@ -159,7 +161,7 @@ export class UsingPogoAnimsDirective implements OnInit{
 
 		setTimeout(function() {
 	    if(window.innerWidth > 960) {
-				initDesktop();
+				// initDesktop();
 	    } else {
 	      initMobile(); 
 	    }
